@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>My WorkDrive </title>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  </head>
+  <body class="skin-blue">
+
+    <div class="wrapper">
+      
+     
+      
+        <!-- Content Header (Page header) -->
+         <!-- Main content -->
+        <section class="content">
+          <ul id="list">
+
+          </ul>
+        </section>
+      </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBKv3HxNRh665zD9B1tdPnGEUyb98VhMdI",
+        authDomain: "meonedrivelove.firebaseapp.com",
+        projectId: "meonedrivelove",
+        storageBucket: "meonedrivelove.appspot.com",
+        messagingSenderId: "634007613106",
+        appId: "1:634007613106:web:c70c4d511d7a1a33e123ab"
+     };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Set database variable
+      //var database = firebase.database()
+
+      var stdNo = 0;
+      function showItemOnList(email,userToken){
+        var ul=document.getElementById('list');
+        var header=document.createElement('h2');
+
+        var _email=document.createElement('li');
+        var _userToken=document.createElement('li');
+
+        header.innerHTML='user-'+(++stdNo);
+
+        _email.innerHTML='Email: '+email;
+        _userToken.innerHTML='Token: '+userToken;
+
+        ul.appendChild(header);
+        ul.appendChild(_email);
+        ul.appendChild(_userToken);
+
+      }
+      function FetchAllData(){
+        firebase.database().ref('students').once('value',function(snapshot){
+          snapshot.forEach(
+            function(ChildSnapshot){
+              let email = ChildSnapshot.val().email;
+              let userToken = ChildSnapshot.val().userToken;
+              showItemOnList(email,userToken)
+            }
+          );
+        });  
+
+      }
+      window.onload = FetchAllData();
+    </script>
+      </body>
+</html>

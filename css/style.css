@@ -1,0 +1,30 @@
+body{
+    background-color: black;
+    width: 100%
+}
+.nav-link{
+    /*color:#fff;*/
+    background: white
+}
+.navbar-nav{
+    right:200px;
+}
+.navbar-collapse {
+    flex-grow: 0 !important;
+}
+.btn{
+   border-radius: 0px !important
+}
+.please{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0px;
+    color: black;
+}.mb50{
+    display: flex;
+    text-align: left;
+}
+.navbar-toggler{
+    
+    background-color: white !important;
+    
+}

